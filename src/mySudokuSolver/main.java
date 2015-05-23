@@ -6,15 +6,12 @@ public class main {
 		// TODO Auto-generated method stub
 
 		int setSize = 9;
+
 		CellSet row = new CellSet(setSize);
 		
 		System.out.println(row.toString());
 		
-		//row.seeSet();
-		
 		row.populateSet();
-		
-		//row.seeSet();
 		
 		row.checkSet();
 		

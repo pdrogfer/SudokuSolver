@@ -47,16 +47,18 @@ public class CellSet {
 	}
 	
 	public void checkSet() {
+		int tempVal;
 		for (Cell tempCell : cells) {
+			// first check if the cell has already a value and reduce possibleCellVals to it
 			tempCell.checkValue();
-			
-			//TODO this part still don't work properly. Removes the wrong items from possibleSetVals
-			int tempVal = tempCell.getCellValue();
+			tempVal = tempCell.getCellValue();
+			// if so update the possible values for the rest of the cells accordingly
 			if (tempVal != 0 && possibleSetVals.contains(tempVal)) {
-				possibleSetVals.remove(tempVal);
+				possibleSetVals.remove(new Integer(tempVal));
 			}
 		}
 	}
+	
 
 	@Override
 	public String toString() {
