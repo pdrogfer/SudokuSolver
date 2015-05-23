@@ -6,21 +6,17 @@ import java.util.Random;
 
 public class CellSet {
 
-	//TODO create board and put the numbers
-	private int numCells = 9;
-	private Cell[] cells = new Cell[numCells];
+	private int numCells;
+	private Cell[] cells;
 	private ArrayList<Integer> possibleSetVals = new ArrayList<>();
 
 	// for test purposes
 	private Random random = new Random();
 
-	public CellSet(int numCells) {
+	public CellSet(Cell[] cells) {
 		super();
-		this.numCells = numCells;
-		// initialize cells with default value
-		for (int i = 0; i < numCells; i++) {
-			cells[i] = new Cell(0);
-		}
+		this.numCells = cells.length;
+		this.cells = cells;
 		
 		for (int i = 1; i < 10; i++) {
 			possibleSetVals.add(i);
@@ -42,7 +38,7 @@ public class CellSet {
 	
 	public void seeSet() {
 		for (Cell tempCell : cells) {
-			System.out.println(tempCell.toString());;
+			System.out.println(tempCell.toString());
 		}
 	}
 	
@@ -55,14 +51,16 @@ public class CellSet {
 			// if so update the possible values for the rest of the cells accordingly
 			if (tempVal != 0 && possibleSetVals.contains(tempVal)) {
 				possibleSetVals.remove(new Integer(tempVal));
+			} else if (tempVal == 0) {
+				// update cell possible vals from set possible vals
+				tempCell.setPossibleVals(possibleSetVals);
 			}
 		}
 	}
 	
-
 	@Override
 	public String toString() {
-		return "CellSet: numCells=" + numCells + " possibleSetVals="
+		return "CellSet: possibleSetVals="
 				+ possibleSetVals + "]\n";
 	}
 
