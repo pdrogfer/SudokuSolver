@@ -24,18 +24,6 @@ public class CellSet {
 		
 	}
 	
-	public void populateSet() {
-		for (int i = 0; i < numCells; i++) {
-			// populating cells with random numbers for test purposes
-			if (i%2 == 0) {
-				cells[i].setValue(random.nextInt(10));
-			} else {
-				cells[i].setValue(0);
-			}
-		}
-		// System.out.println("Board populated");
-	}
-	
 	public void seeSet() {
 		for (Cell tempCell : cells) {
 			System.out.println(tempCell.toString());

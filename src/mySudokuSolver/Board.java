@@ -1,19 +1,29 @@
 package mySudokuSolver;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class Board {
 	
 	//TODO create a two-dimensional array of objects Cell, 'board'
 	private Cell[][] board = new Cell[9][9];
 	
+	// for test purposes
+	private Random random = new Random();
+	
 	public Board() {
 		
-		// initialize cells with default value
+		// initialize cells with random value
 		for (int x = 1; x < 10; x++) {
 			for (int y = 1; y < 10; y++) {
-				board[x-1][y-1] = new Cell(0);
-				System.out.println(board[x-1][y-1].toString());
+				Cell tempCell = board[x-1][y-1];
+				tempCell = new Cell(0);
+				if (tempCell.getCellIndex() % 2 == 0) {
+					tempCell.setValue(random.nextInt(10));
+				} else {
+					tempCell.setValue(0);
+				}
+				System.out.println(tempCell.toString());
 			}
 		}
 		
@@ -27,8 +37,7 @@ public class Board {
 	private void initRows() {
 		for (int i = 1; i < 9; i++) {
 			CellSet row = new CellSet(board[i]);
-			//row.populateSet();
-			//row.seeSet();
+			row.seeSet();
 		}
 	}
 
