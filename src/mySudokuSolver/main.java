@@ -10,6 +10,14 @@ public class main {
 		
 		myGame.seeBoard();
 		
+		myGame.populateBoard();
+		
+		myGame.seeBoard();
+		
+		myGame.checkBoard();
+		
+		myGame.seeBoard();
+		
 
 	}
 

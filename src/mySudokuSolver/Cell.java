@@ -39,8 +39,10 @@ public class Cell {
 	}
 
 	public void checkValue() {
-		
-		
+		if (value != 0) {
+			possibleVals.clear();
+			possibleVals.add(value);
+		}
 	}
 	
 	public static int getGeneralIndex() {

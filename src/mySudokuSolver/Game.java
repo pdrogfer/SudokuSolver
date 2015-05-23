@@ -13,24 +13,32 @@ public class Game {
 	public Game(int numCells) {
 		super();
 		this.numCells = numCells;
-		
-		populateBoard(numCells);
+		// initialize cells with default value
+		for (int i = 0; i < numCells; i++) {
+			cells[i] = new Cell(0);
+		}
 	}
 	
-	public void populateBoard(int numCells) {
+	public void populateBoard() {
 		for (int i = 0; i < numCells; i++) {
+			// populating cells with random numbers for test purposes
 			cells[i] = new Cell(random.nextInt(numCells));
-			
 		}
 		System.out.println("Board populated");
 	}
 	
 	public void seeBoard() {
-			for (Cell tempCell : cells) {
-				System.out.println(tempCell.toString());;
+		for (Cell tempCell : cells) {
+			System.out.println(tempCell.toString());;
 		}
 	}
 	
+	public void checkBoard() {
+		for (Cell tempCell : cells) {
+			tempCell.checkValue();
+		}
+	}
+
 	
 	
 	
