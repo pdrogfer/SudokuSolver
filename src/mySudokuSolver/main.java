@@ -5,19 +5,23 @@ public class main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int gameSize = 9;
-		Game myGame = new Game(gameSize);
+		int setSize = 9;
+		CellSet row = new CellSet(setSize);
 		
-		myGame.seeBoard();
+		System.out.println(row.toString());
 		
-		myGame.populateBoard();
+		//row.seeSet();
 		
-		myGame.seeBoard();
+		row.populateSet();
 		
-		myGame.checkBoard();
+		//row.seeSet();
 		
-		myGame.seeBoard();
+		row.checkSet();
 		
+		row.seeSet();
+		
+		System.out.println();
+		System.out.println(row.toString());
 
 	}
 

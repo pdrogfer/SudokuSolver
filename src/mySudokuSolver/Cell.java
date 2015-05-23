@@ -8,29 +8,32 @@ public class Cell {
 	private static int generalIndex = 0;
 	private int cellIndex;
 	private int value;
-	private ArrayList<Integer> possibleVals = new ArrayList<>();
+	private ArrayList<Integer> possibleCellVals = new ArrayList<>();
 	
 	// default constructor
 	public Cell() {
+		generalIndex ++;
+		setCellIndex(generalIndex);
 		value = 0;
-		initiateValues();
+		initiateCellValues();
 	}
 	
 	// constructor with value assigned
 	public Cell(int val) {
+		generalIndex ++;
+		setCellIndex(generalIndex);
 		this.setValue(val);
-		initiateValues();
+		initiateCellValues();
 	}
 	
-	private void initiateValues() {
-		generalIndex ++;
-		cellIndex = generalIndex;
+	private void initiateCellValues() {
+		
 		for (int i = 1; i < 10; i++) {
-			possibleVals.add(i);
+			possibleCellVals.add(i);
 		}
 	}
 
-	public int getValue() {
+	public int getCellValue() {
 		return value;
 	}
 
@@ -38,11 +41,16 @@ public class Cell {
 		this.value = value;
 	}
 
-	public void checkValue() {
+	public int checkValue() {
+		// if cell has already a value
 		if (value != 0) {
-			possibleVals.clear();
-			possibleVals.add(value);
+			possibleCellVals.clear();
+			possibleCellVals.add(value);
 		}
+		else if (possibleCellVals.size() == 1) {
+			setValue(possibleCellVals.get(0));
+		}
+		return value;
 	}
 	
 	public static int getGeneralIndex() {
@@ -62,17 +70,16 @@ public class Cell {
 	}
 
 	public ArrayList<Integer> getPossibleVals() {
-		return possibleVals;
+		return possibleCellVals;
 	}
 
 	public void setPossibleVals(ArrayList<Integer> possibleVals) {
-		this.possibleVals = possibleVals;
+		this.possibleCellVals = possibleVals;
 	}
 
 	@Override
 	public String toString() {
-		
-		return "Cell n." + cellIndex + ": value=" + value + " and possible values " + possibleVals;
+		return "Cell n." + cellIndex + ": value=" + value + "; possible Cell values " + possibleCellVals;
 	}
 	
 	
