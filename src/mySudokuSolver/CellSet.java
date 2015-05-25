@@ -25,6 +25,10 @@ public class CellSet {
 	}
 	
 	public void seeSet() {
+		System.out.println("----------------");
+		for (int i = 0; i < cells.length; i++) {
+			System.out.println(cells[i].toString());
+		}
 		for (Cell tempCell : cells) {
 			System.out.println(tempCell.toString());
 		}
