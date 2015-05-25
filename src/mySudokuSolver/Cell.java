@@ -36,6 +36,7 @@ public class Cell {
 	public int getCellValue() {
 		return value;
 	}
+	
 
 	public void setValue(int value) {
 		this.value = value;
